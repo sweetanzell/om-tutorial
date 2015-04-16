@@ -9,7 +9,8 @@
                  [figwheel "0.2.3-SNAPSHOT"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [sablono "0.2.3"]
-                 [org.omcljs/om "0.8.6"]]
+                 [org.omcljs/om "0.8.6"]
+                 [alandipert/storage-atom "1.2.4"]]
 
   :plugins [[lein-cljsbuild "1.0.4"]
             [lein-figwheel "0.2.3-SNAPSHOT"]]
@@ -17,7 +18,7 @@
   :source-paths ["src"]
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled"]
-  
+
   :cljsbuild {
     :builds [{:id "dev"
               :source-paths ["src" "dev_src"]
@@ -32,13 +33,13 @@
              {:id "min"
               :source-paths ["src"]
               :compiler {:output-to "resources/public/js/compiled/om_tut.js"
-                         :main om-tut.core                         
+                         :main om-tut.core
                          :optimizations :advanced
                          :pretty-print false}}]}
 
   :figwheel {
-             :http-server-root "public" ;; default and assumes "resources" 
-             :server-port 3449 ;; default
+             :http-server-root "public" ;; default and assumes "resources"
+             :server-port 3447 ;; default
              :css-dirs ["resources/public/css"] ;; watch and update CSS
 
              ;; Server Ring Handler (optional)
@@ -60,5 +61,5 @@
              ;; :repl false
 
              ;; to configure a different figwheel logfile path
-             ;; :server-logfile "tmp/logs/figwheel-logfile.log" 
+             ;; :server-logfile "tmp/logs/figwheel-logfile.log"
              })
